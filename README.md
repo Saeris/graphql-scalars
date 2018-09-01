@@ -11,6 +11,8 @@
 
 ---
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Saeris/graphql-scalars.svg)](https://greenkeeper.io/)
+
 ## 🔧 Installation
 
 ```bash
