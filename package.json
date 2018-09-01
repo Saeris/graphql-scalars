@@ -35,7 +35,7 @@
     "precommit": "lint-staged",
     "prepublish": "snyk protect",
     "prepublishOnly": "yarn test && yarn build",
-    "release": "yarn test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "release": "yarn test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && yarn publish --access public"
   },
   "dependencies": {
     "joi": "^13.6.0",

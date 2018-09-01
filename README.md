@@ -3,8 +3,8 @@
   <a href="https://www.npmjs.org/package/@saeris/graphql-scalars">
     <img src="https://img.shields.io/npm/v/@saeris/graphql-scalars.svg?style=flat" alt="npm">
   </a>
-  <a href="https://travis-ci.org/saeris/graphql-scalars">
-    <img src="https://travis-ci.org/saeris/graphql-scalars.svg?branch=master" alt="travis">
+  <a href="https://travis-ci.org/Saeris/graphql-scalars">
+    <img src="https://travis-ci.org/Saeris/graphql-scalars.svg?branch=master" alt="travis">
   </a>
 </p>
 <p align="center">A library of custom <a href="http://graphql.org/learn/schema/#scalar-types">GraphQL scalar types</a> for creating precise type-safe GraphQL schemas, with validation powered by <a href="https://github.com/hapijs/joi">Joi</a>.</p>
