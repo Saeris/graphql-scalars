@@ -1,8 +1,6 @@
-import { GraphQLScalarType } from "graphql"
-import { GraphQLError } from "graphql/error"
-import { Kind } from "graphql/language"
+import { GraphQLScalarType, GraphQLError, Kind  } from "graphql"
 import BaseJoi from "joi"
-import joiPostalCode from 'joi-postalcode' // https://github.com/abythell/joi-postalcode
+import joiPostalCode from "joi-postalcode"
 
 const Joi = BaseJoi.extend(joiPostalCode)
 

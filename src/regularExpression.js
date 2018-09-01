@@ -1,6 +1,4 @@
-import { GraphQLScalarType } from "graphql"
-import { GraphQLError } from "graphql/error"
-import { Kind } from "graphql/language"
+import { GraphQLScalarType, GraphQLError, Kind  } from "graphql"
 import Joi from "joi"
 
 export const RegularExpressionFactory = (name, regex) => {

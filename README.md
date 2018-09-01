@@ -35,12 +35,12 @@ const { scalar: MyRegexScalar, resolver: MyRegex } = RegularExpressionFactory(`M
 const server = new ApolloServer({
   schema: makeExecutableSchema({
     typeDefs: [
-      ...Object.keys(CustomScalars),
+      ...CustomScalars.keys(),
       // DateTimeScalar,
       MyRegexScalar
     ],
     resolvers: {
-      ...Object.values(CustomScalars),
+      ...CustomScalars.values(),
       // DateTime,
       MyRegex
     }
@@ -61,9 +61,9 @@ type Person {
 
   heightInInches: PositiveFloat
 
-  minimumHourlyRate: NonNegativeFloat
+  minimumHourlyRate: UnsignedFloat
 
-  currentlyActiveProjects: NonNegativeInt
+  currentlyActiveProjects: UnsignedInt
 
   email: EmailAddress
   homePage: URL
