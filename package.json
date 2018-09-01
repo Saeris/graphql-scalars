@@ -1,6 +1,6 @@
 {
   "name": "@saeris/graphql-scalars",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of scalar types using Joi for validation.",
   "author": "Drake Costa <drake@saeris.io> (http://saeris.github.io/)",
   "repository": {
