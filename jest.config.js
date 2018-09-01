@@ -1,5 +1,5 @@
 module.exports = {
-  coverageDirectory: `./coverage/`,
+  coverageDirectory: `./.coverage/`,
   collectCoverage: true,
   transform: {
     "^.+\\.js$": `babel-jest`
