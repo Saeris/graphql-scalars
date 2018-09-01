@@ -95,70 +95,6 @@ timestamp in milliseconds) to represent a date/time. This scalar makes it easy t
 the type and have a real JavaScript Date returned that the client can use _without_ doing the
 inevitable parsing or conversion themselves.
 
-### UnsignedInt
-
-```js
-import { UnsignedIntScalar, UnsignedInt } from "@saeris/graphql-scalars"
-```
-
-Integers that will have a value of 0 or more. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
-
-### NonPositiveInt
-
-```js
-import { NonPositiveIntScalar, NonPositiveInt } from "@saeris/graphql-scalars"
-```
-
-Integers that will have a value of 0 or less. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
-
-### PositiveInt
-
-```js
-import { PositiveIntScalar, PositiveInt } from "@saeris/graphql-scalars"
-```
-
-Integers that will have a value greater than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
-
-### NegativeInt
-
-```js
-import { NegativeIntScalar, NegativeInt } from "@saeris/graphql-scalars"
-```
-
-Integers that will have a value less than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
-
-### UnsignedFloat
-
-```js
-import { UnsignedFloatScalar, UnsignedFloat } from "@saeris/graphql-scalars"
-```
-
-Floats that will have a value of 0 or more. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
-
-### NonPositiveFloat
-
-```js
-import { NonPositiveFloatScalar, NonPositiveFloat } from "@saeris/graphql-scalars"
-```
-
-Floats that will have a value of 0 or less. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
-
-### PositiveFloat
-
-```js
-import { PositiveFloatScalar, PositiveFloat } from "@saeris/graphql-scalars"
-```
-
-Floats that will have a value greater than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
-
-### NegativeFloat
-
-```js
-import { NegativeFloatScalar, NegativeFloat } from "@saeris/graphql-scalars"
-```
-
-Floats that will have a value less than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
-
 ### EmailAddress
 
 ```js
@@ -168,14 +104,86 @@ import { EmailAddressScalar, EmailAddress } from "@saeris/graphql-scalars"
 A field whose value conforms to the standard internet email address format as specified in
 [RFC822](https://www.w3.org/Protocols/rfc822/).
 
-### URL
-
+### GUID
 ```js
-import { URLScalar, URL } from "@saeris/graphql-scalars"
+import { GUIDScalar, GUID } from "@saeris/graphql-scalars"
 ```
 
-A field whose value conforms to the standard URL format as specified in
-[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
+A field whose value is a generic [Globally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+### Hexadecimal
+```js
+import { HexadecimalScalar, Hexadecimal } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal).
+
+### HexColorCode
+```js
+import { HexColorCodeScalar, HexColorCode } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [hex color code](https://en.wikipedia.org/wiki/Web_colors).
+
+### HSL
+```js
+import { HSLScalar, HSL } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [CSS HSL color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()).
+
+### HSLA
+```js
+import { HSLAScalar, HSLA } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [CSS HSLA color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla()).
+
+### IPv4
+```js
+import { IPv4Scalar, IPv4 } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [IPv4 address](https://en.wikipedia.org/wiki/IPv4).
+
+### IPv6
+```js
+import { IPv6Scalar, IPv6 } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
+
+### NegativeFloat
+
+```js
+import { NegativeFloatScalar, NegativeFloat } from "@saeris/graphql-scalars"
+```
+
+Floats that will have a value less than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
+### NegativeInt
+
+```js
+import { NegativeIntScalar, NegativeInt } from "@saeris/graphql-scalars"
+```
+
+Integers that will have a value less than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+
+### NonPositiveFloat
+
+```js
+import { NonPositiveFloatScalar, NonPositiveFloat } from "@saeris/graphql-scalars"
+```
+
+Floats that will have a value of 0 or less. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
+### NonPositiveInt
+
+```js
+import { NonPositiveIntScalar, NonPositiveInt } from "@saeris/graphql-scalars"
+```
+
+Integers that will have a value of 0 or less. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
 ### PhoneNumber
 
@@ -189,6 +197,30 @@ The very powerful
 [`libphonenumber` library](https://github.com/googlei18n/libphonenumber) is available to take
 _that_ format, parse and display it in whatever display format you want. It can also be used to
 parse user input and _get_ the E.164 format to pass _into_ a schema.
+
+### Port
+
+```js
+import { PortScalar, Port } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a valid [TCP port](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports) within the range of 0 to 65535.
+
+### PositiveFloat
+
+```js
+import { PositiveFloatScalar, PositiveFloat } from "@saeris/graphql-scalars"
+```
+
+Floats that will have a value greater than 0. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
+### PositiveInt
+
+```js
+import { PositiveIntScalar, PositiveInt } from "@saeris/graphql-scalars"
+```
+
+Integers that will have a value greater than 0. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
 
 ### PostalCode
 
@@ -213,6 +245,45 @@ A field whose value conforms to the standard Portal Code format of any of the fo
 * IN - India
 
 Uses [`joi-postalcode`](https://github.com/abythell/joi-postalcode) for validation, which uses [`postal-codes-js`](https://github.com/Cimpress-MCP/postal-codes-js) under the hood.
+
+### RGB
+```js
+import { RGBScalar, RGB } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [CSS RGB color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+
+### RGBA
+```js
+import { RGBAScalar, RGBA } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [CSS RGBA color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba()).
+
+### UnsignedFloat
+
+```js
+import { UnsignedFloatScalar, UnsignedFloat } from "@saeris/graphql-scalars"
+```
+
+Floats that will have a value of 0 or more. Uses [`parseFloat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat).
+
+### UnsignedInt
+
+```js
+import { UnsignedIntScalar, UnsignedInt } from "@saeris/graphql-scalars"
+```
+
+Integers that will have a value of 0 or more. Uses [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt).
+
+### URL
+
+```js
+import { URLScalar, URL } from "@saeris/graphql-scalars"
+```
+
+A field whose value conforms to the standard URL format as specified in
+[RFC3986](https://www.ietf.org/rfc/rfc3986.txt).
 
 ## 🏭 Factories
 

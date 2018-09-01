@@ -90,12 +90,9 @@ describe(`UnsignedFloat`, () => {
         expect(() => UnsignedFloat.serialize(undefined)).toThrow(/Value is not a number/) // eslint-disable-line
       })
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // it('parseValue', () => {
-      //   expect(() => UnsignedFloat.parseValue(undefined)).toThrow(
-      //     /Value is not a number/,
-      //   );
-      // });
+      it(`parseValue`, () => {
+        expect(() => UnsignedFloat.parseValue(undefined)).toThrow(/Value is not a number/) // eslint-disable-line
+      })
 
       it(`parseLiteral`, () => {
         expect(() => UnsignedFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT })).toThrow( // eslint-disable-line
@@ -179,12 +176,9 @@ describe(`UnsignedFloat`, () => {
         expect(() => UnsignedFloat.serialize(Number.NaN)).toThrow(/Value is not a number/)
       })
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // it('parseValue', () => {
-      //   expect(() => UnsignedFloat.parseValue(Number.NaN)).toThrow(
-      //     /Value is not a number/,
-      //   );
-      // });
+      it(`parseValue`, () => {
+        expect(() => UnsignedFloat.parseValue(Number.NaN)).toThrow(/Value is not a number/)
+      })
 
       it(`parseLiteral`, () => {
         expect(() =>

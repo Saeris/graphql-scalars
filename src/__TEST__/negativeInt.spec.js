@@ -53,12 +53,9 @@ describe(`NegativeInt`, () => {
         expect(() => NegativeInt.serialize(undefined)).toThrow(/Value is not a number/) // eslint-disable-line
       })
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // it('parseValue', () => {
-      //   expect(() => NegativeInt.parseValue(undefined)).toThrow(
-      //     /Value is not a number/,
-      //   );
-      // });
+      it(`parseValue`, () => {
+        expect(() => NegativeInt.parseValue(undefined)).toThrow(/Value is not a number/) // eslint-disable-line
+      })
 
       it(`parseLiteral`, () => {
         expect(() => NegativeInt.parseLiteral({ value: undefined, kind: Kind.INT })).toThrow(/Value is not a number/) //eslint-disable-line
@@ -186,12 +183,9 @@ describe(`NegativeInt`, () => {
         expect(() => NegativeInt.serialize(Number.NaN)).toThrow(/Value is not a number/)
       })
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // it('parseValue', () => {
-      //   expect(() => NegativeInt.parseValue(Number.NaN)).toThrow(
-      //     /Value is not a number/,
-      //   );
-      // });
+      it(`parseValue`, () => {
+        expect(() => NegativeInt.parseValue(Number.NaN)).toThrow(/Value is not a number/)
+      })
 
       it(`parseLiteral`, () => {
         expect(() => NegativeInt.parseLiteral({ value: Number.NaN, kind: Kind.STRING })).toThrow(

@@ -53,12 +53,9 @@ describe(`NegativeFloat`, () => {
         expect(() => NegativeFloat.serialize(undefined)).toThrow(/Value is not a number/) // eslint-disable-line
       })
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // it('parseValue', () => {
-      //   expect(() => NegativeFloat.parseValue(undefined)).toThrow(
-      //     /Value is not a number/,
-      //   );
-      // });
+      it(`parseValue`, () => {
+        expect(() => NegativeFloat.parseValue(undefined)).toThrow(/Value is not a number/) // eslint-disable-line
+      })
 
       it(`parseLiteral`, () => {
         expect(() => NegativeFloat.parseLiteral({ value: undefined, kind: Kind.FLOAT })).toThrow( // eslint-disable-line
@@ -176,12 +173,9 @@ describe(`NegativeFloat`, () => {
         expect(() => NegativeFloat.serialize(Number.NaN)).toThrow(/Value is not a number/)
       })
 
-      // FIXME: Does nothing. No throw. Call doesn't even seem to get to the parseValue() function.
-      // it('parseValue', () => {
-      //   expect(() => NegativeFloat.parseValue(Number.NaN)).toThrow(
-      //     /Value is not a number/,
-      //   );
-      // });
+      it(`parseValue`, () => {
+        expect(() => NegativeFloat.parseValue(Number.NaN)).toThrow(/Value is not a number/)
+      })
 
       it(`parseLiteral`, () => {
         expect(() => NegativeFloat.parseLiteral({ value: Number.NaN, kind: Kind.STRING })).toThrow(
