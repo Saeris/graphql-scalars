@@ -1,0 +1,69 @@
+{
+  "name": "@saeris/graphql-scalars",
+  "version": "1.0.0",
+  "description": "A collection of scalar types using Joi for validation.",
+  "author": "Drake Costa <drake@saeris.io> (http://saeris.github.io/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saeris/graphql-scalars.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "apollo",
+    "graphql",
+    "scalars"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js",
+    "*.mjs",
+    "*.map"
+  ],
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "lint": "eslint ./src",
+    "test": "yarn lint && jest -c ./jest.config.js",
+    "test:watch": "jest -c ./jest.config.js --watch",
+    "test:coverage": "jest -c ./jest.config.js && codecov",
+    "precommit": "lint-staged",
+    "prepublish": "snyk protect",
+    "prepublishOnly": "yarn test && yarn build",
+    "release": "yarn test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "dependencies": {
+    "joi": "^13.6.0",
+    "joi-postalcode": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "eslint": "^5.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "graphql": "^14.0.0",
+    "jest": "^23.5.0",
+    "lint-staged": "^7.1.3",
+    "microbundle": "^0.6.0",
+    "prettier": "^1.7.0",
+    "snyk": "^1.42.6"
+  },
+  "peerDependencies": {
+    "graphql": "^14.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "snyk": true
+}
