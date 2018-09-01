@@ -33,7 +33,7 @@
     "precommit": "lint-staged",
     "prepublish": "snyk protect",
     "prepublishOnly": "yarn test && yarn build",
-    "release": "yarn test && yarn publish --access public"
+    "release": "yarn publish --access public"
   },
   "dependencies": {
     "joi": "^13.6.0",
