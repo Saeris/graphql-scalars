@@ -228,4 +228,4 @@ This library was forked from [@okgrow/graphql-scalars](https://github.com/okgrow
 
 ## 🥂 License
 
-Released under the [MIT license](https://github.com/okgrow/analytics/blob/master/License.md).
+Released under the [MIT license](https://github.com/Saeris/graphql-scalars/blob/master/LICENSE.md).
