@@ -153,6 +153,13 @@ import { IPv6Scalar, IPv6 } from "@saeris/graphql-scalars"
 
 A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
 
+### ISBN
+```js
+import { ISBNScalar, ISBN } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a [ISBN-10 or ISBN-13 number](https://en.wikipedia.org/wiki/International_Standard_Book_Number).
+
 ### MAC
 ```js
 import { MACScalar, MAC } from "@saeris/graphql-scalars"
