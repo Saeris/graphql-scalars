@@ -153,6 +153,13 @@ import { IPv6Scalar, IPv6 } from "@saeris/graphql-scalars"
 
 A field whose value is a [IPv6 address](https://en.wikipedia.org/wiki/IPv6).
 
+### MAC
+```js
+import { MACScalar, MAC } from "@saeris/graphql-scalars"
+```
+
+A field whose value is a IEEE 802 48-bit [MAC address](https://en.wikipedia.org/wiki/MAC_address).
+
 ### NegativeFloat
 
 ```js

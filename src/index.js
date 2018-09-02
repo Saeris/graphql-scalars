@@ -7,6 +7,7 @@ import { HSLScalar, HSL } from "./hsl"
 import { HSLAScalar, HSLA } from "./hsla"
 import { IPv4Scalar, IPv4 } from "./ipv4"
 import { IPv6Scalar, IPv6 } from "./ipv6"
+import { MACScalar, MAC } from "./mac"
 import { NegativeFloatScalar, NegativeFloat } from "./negativeFloat"
 import { NegativeIntScalar, NegativeInt } from "./negativeInt"
 import { NonPositiveFloatScalar, NonPositiveFloat } from "./nonPositiveFloat"
@@ -43,6 +44,8 @@ export {
   IPv4,
   IPv6Scalar,
   IPv6,
+  MACScalar,
+  MAC,
   NegativeFloatScalar,
   NegativeFloat,
   NegativeIntScalar,
@@ -83,6 +86,7 @@ export default new Map([
   [HSLAScalar, HSLA],
   [IPv4Scalar, IPv4],
   [IPv6Scalar, IPv6],
+  [MACScalar, MAC],
   [NegativeFloatScalar, NegativeFloat],
   [NegativeIntScalar, NegativeInt],
   [NonPositiveFloatScalar, NonPositiveFloat],
