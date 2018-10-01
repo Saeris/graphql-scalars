@@ -1,4 +1,4 @@
-<h1 align="center" style="text-align: center;">Graphql Scalars</h1>
+<h1 align="center" style="text-align: center;">GraphQL Scalars</h1>
 <p align="center">
   <a href="https://www.npmjs.org/package/@saeris/graphql-scalars">
     <img src="https://img.shields.io/npm/v/@saeris/graphql-scalars.svg?style=flat" alt="npm">

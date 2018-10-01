@@ -1,6 +1,6 @@
 import { ApolloServer } from "apollo-server"
 import { makeExecutableSchema } from "graphql-tools"
-import CustomScalars from "../dist"
+import CustomScalars from "@saeris/graphql-scalars"
 import { types } from "./types"
 import { resolvers } from "./resolvers"
 
