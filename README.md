@@ -20,7 +20,7 @@
 
 ---
 
-## 🔧 Installation
+## 📦 Installation
 
 ```bash
 npm install --save graphql @saeris/graphql-scalars
@@ -28,7 +28,7 @@ npm install --save graphql @saeris/graphql-scalars
 yarn add graphql @saeris/graphql-scalars
 ```
 
-## 📦 Usage
+## 🔧 Usage
 
 To use these scalars you'll need to add them in two places, your schema and your resolvers map. Here is an example of how to use them with [Apollo Server](https://github.com/apollographql/apollo-server):
 
