@@ -35,7 +35,7 @@
     "release": "yarn publish --access public"
   },
   "dependencies": {
-    "joi": "^13.6.0",
+    "joi": "^14.0.0",
     "joi-postalcode": "^1.0.0"
   },
   "devDependencies": {
