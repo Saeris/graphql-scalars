@@ -3,7 +3,7 @@ import Joi from "joi"
 
 const validate = value => {
   Joi.assert(value, Joi.string(), new TypeError(`Value is not string: ${value}`))
-  Joi.assert(value, Joi.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/), new TypeError(`Value is not a valid HexColorCode: ${value}`))
+  Joi.assert(value, Joi.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/), new TypeError(`Value is not a valid HexColorCode: ${value}`))
   return value
 }
 
