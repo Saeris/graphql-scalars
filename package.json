@@ -8,11 +8,7 @@
     "url": "https://github.com/saeris/graphql-scalars.git"
   },
   "license": "MIT",
-  "keywords": [
-    "apollo",
-    "graphql",
-    "scalars"
-  ],
+  "keywords": ["apollo", "graphql", "scalars"],
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon --watch src --watch example --exec run-s build serve",
@@ -65,15 +61,10 @@
       [
         "@pika/plugin-standard-pkg",
         {
-          "exclude": [
-            "__TEST__/*"
-          ]
+          "exclude": ["__TEST__/*"]
         }
       ],
-      [
-        "@pika/plugin-build-node",
-        {}
-      ]
+      ["@pika/plugin-build-node", {}]
     ]
   },
   "gitHooks": {
