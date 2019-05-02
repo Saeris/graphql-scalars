@@ -5,10 +5,11 @@ import { types } from "./types"
 import { resolvers } from "./resolvers"
 import { defaultQuery } from "./defaultQuery"
 
-const endpoint = {
-  host: `localhost`,
-  port: 4000
-}
+const host = process.env.HOSTNAME
+
+const endpoint = host
+  ? `https://${host.replace(`sse-sandbox-`, ``)}.sse.codesandbox.io`
+  : `localhost:9000`
 
 const server = new ApolloServer({
   schema: makeExecutableSchema({
@@ -21,7 +22,7 @@ const server = new ApolloServer({
   playground: {
     tabs: [
       {
-        endpoint: `${endpoint.host}:${endpoint.port}`,
+        endpoint,
         query: defaultQuery
       }
     ]
