@@ -1,5 +1,5 @@
 import { GraphQLScalarType, GraphQLError, Kind  } from "graphql"
-import BaseJoi from "joi"
+import * as BaseJoi from "@hapi/joi"
 import joiPostalCode from "joi-postalcode"
 
 const Joi = BaseJoi.extend(joiPostalCode)

@@ -1,5 +1,5 @@
 import { GraphQLScalarType, GraphQLError, Kind  } from "graphql"
-import Joi from "joi"
+import * as Joi from "@hapi/joi"
 
 const validate = value => {
   Joi.assert(value, Joi.any().invalid(Infinity, -Infinity), new TypeError(`Value is not a finite number: ${value}`))

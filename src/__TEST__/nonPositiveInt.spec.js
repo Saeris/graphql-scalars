@@ -94,17 +94,15 @@ describe(`NonPositiveInt`, () => {
 
     describe(`unsafe integer`, () => {
       it(`serialize`, () => {
-        expect(() => NonPositiveInt.serialize(2 ** 53)).toThrow(/Value is not a safe integer/)
+        expect(() => NonPositiveInt.serialize(2 ** 53)).toThrow(/Value is not a number/)
       })
 
       it(`parseValue`, () => {
-        expect(() => NonPositiveInt.parseValue(2 ** 53)).toThrow(/Value is not a safe integer/)
+        expect(() => NonPositiveInt.parseValue(2 ** 53)).toThrow(/Value is not a number/)
       })
 
       it(`parseLiteral`, () => {
-        expect(() => NonPositiveInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(
-          /Value is not a safe integer/
-        )
+        expect(() => NonPositiveInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(/Value is not a number/)
       })
     })
 

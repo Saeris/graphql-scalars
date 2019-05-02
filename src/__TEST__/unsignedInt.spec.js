@@ -96,17 +96,15 @@ describe(`UnsignedInt`, () => {
 
     describe(`unsafe integer`, () => {
       it(`serialize`, () => {
-        expect(() => UnsignedInt.serialize(2 ** 53)).toThrow(/Value is not a safe integer/)
+        expect(() => UnsignedInt.serialize(2 ** 53)).toThrow(/Value is not a number/)
       })
 
       it(`parseValue`, () => {
-        expect(() => UnsignedInt.parseValue(2 ** 53)).toThrow(/Value is not a safe integer/)
+        expect(() => UnsignedInt.parseValue(2 ** 53)).toThrow(/Value is not a number/)
       })
 
       it(`parseLiteral`, () => {
-        expect(() => UnsignedInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(
-          /Value is not a safe integer/
-        )
+        expect(() => UnsignedInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(/Value is not a number/)
       })
     })
 

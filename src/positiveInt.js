@@ -1,11 +1,10 @@
 import { GraphQLScalarType, GraphQLError, Kind  } from "graphql"
-import Joi from "joi"
+import * as Joi from "@hapi/joi"
 
 const validate = value => {
   Joi.assert(value, Joi.any().invalid(Infinity, -Infinity), new TypeError(`Value is not a finite number: ${value}`))
   Joi.assert(value, Joi.number().required(), new TypeError(`Value is not a number: ${value}`))
   const parsed = parseInt(value, 10)
-  Joi.assert(parsed, Joi.number().integer(), new TypeError(`Value is not a safe integer: ${parsed}`))
   Joi.assert(parsed, Joi.number().integer(), new TypeError(`Value is not an integer: ${parsed}`))
   Joi.assert(parsed, Joi.number().positive(), new TypeError(`Value is not a positive number: ${parsed}`))
   Joi.assert(parsed, Joi.number().greater(0), new TypeError(`Value is not greater than 0: ${parsed}`))

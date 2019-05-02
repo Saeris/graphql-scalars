@@ -64,17 +64,15 @@ describe(`NegativeInt`, () => {
 
     describe(`unsafe integer`, () => {
       it(`serialize`, () => {
-        expect(() => NegativeInt.serialize(2 ** 53)).toThrow(/Value is not a safe integer/)
+        expect(() => NegativeInt.serialize(2 ** 53)).toThrow(/Value is not a number/)
       })
 
       it(`parseValue`, () => {
-        expect(() => NegativeInt.parseValue(2 ** 53)).toThrow(/Value is not a safe integer/)
+        expect(() => NegativeInt.parseValue(2 ** 53)).toThrow(/Value is not a number/)
       })
 
       it(`parseLiteral`, () => {
-        expect(() => NegativeInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(
-          /Value is not a safe integer/
-        )
+        expect(() => NegativeInt.parseLiteral({ value: 2 ** 53, kind: Kind.INT })).toThrow(/Value is not a number/)
       })
     })
 
