@@ -84,7 +84,7 @@ type Person {
 
 ## 🏖️ Example
 
-You can quickly take this library for a spin by running the example either locally under the `example` directory (just run `yarn && yarn start` and open your browser to http://localhost:4000) or live inside of CodeSandbox [here](https://codesandbox.io/s/github/Saeris/graphql-scalars/tree/master/example).
+You can quickly take this library for a spin by running the example either locally under the `example` directory (just run `yarn && yarn start` and open your browser to http://localhost:4000) or live inside of CodeSandbox [here](https://codesandbox.io/s/github/Saeris/graphql-scalars/).
 
 ## 📐 Scalars
 
