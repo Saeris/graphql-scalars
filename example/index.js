@@ -30,6 +30,6 @@ const server = new ApolloServer({
 })
 
 /* eslint-disable */
-server.listen(endpoint).then(({ url }) => {
+server.listen({ host: `localhost`, port: 9000 }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`)
 })
