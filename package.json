@@ -1,6 +1,6 @@
 {
   "name": "@saeris/graphql-scalars",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A collection of scalar types using Joi for validation.",
   "author": "Drake Costa <drake@saeris.io> (http://saeris.github.io/)",
   "repository": {
@@ -8,7 +8,11 @@
     "url": "https://github.com/saeris/graphql-scalars.git"
   },
   "license": "MIT",
-  "keywords": ["apollo", "graphql", "scalars"],
+  "keywords": [
+    "apollo",
+    "graphql",
+    "scalars"
+  ],
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon --watch src --watch example --exec run-s build serve",
@@ -61,10 +65,15 @@
       [
         "@pika/plugin-standard-pkg",
         {
-          "exclude": ["__TEST__/*"]
+          "exclude": [
+            "__TEST__/*"
+          ]
         }
       ],
-      ["@pika/plugin-build-node", {}]
+      [
+        "@pika/plugin-build-node",
+        {}
+      ]
     ]
   },
   "gitHooks": {
