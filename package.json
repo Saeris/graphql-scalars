@@ -27,7 +27,7 @@
     "release": "pack publish"
   },
   "dependencies": {
-    "@hapi/joi": "^15.0.1",
+    "@hapi/joi": "^15.1.1",
     "joi-postalcode": "^1.0.0"
   },
   "devDependencies": {
