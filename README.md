@@ -9,12 +9,6 @@
   <a href="https://codecov.io/gh/Saeris/graphql-scalars">
     <img src="https://codecov.io/gh/Saeris/graphql-scalars/branch/master/graph/badge.svg" alt="codecov"/>
   </a>
-  <a href="https://snyk.io/test/github/Saeris/graphql-scalars?targetFile=package.json">
-    <img src="https://snyk.io/test/github/Saeris/graphql-scalars/badge.svg?targetFile=package.json" alt="Known Vulnerabilities">
-  </a>
-  <a href="https://greenkeeper.io/">
-    <img src="https://badges.greenkeeper.io/Saeris/graphql-scalars.svg" alt="Known Vulnerabilities" alt="greenkeeper">
-  </a>
 </p>
 <p align="center">A library of custom <a href="http://graphql.org/learn/schema/#scalar-types">GraphQL scalar types</a> for creating precise type-safe GraphQL schemas, with validation powered by <a href="https://github.com/hapijs/joi">Joi</a>.</p>
 
