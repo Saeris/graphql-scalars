@@ -22,7 +22,7 @@
     "build": "pika build",
     "serve": "babel-node --extensions \".ts,.tsx\" example/index.ts",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ./src",
+    "lint": "eslint ./src/**/*.{js,ts}",
     "test": "yarn lint && yarn typecheck && jest -c ./jest.config.js",
     "test:watch": "jest -c ./jest.config.js --watch",
     "test:coverage": "jest -c ./jest.config.js && codecov",
@@ -46,6 +46,7 @@
     "@pika/plugin-standard-pkg": "^0.9.2",
     "@types/graphql": "^14.5.0",
     "@types/hapi__joi": "^16.0.12",
+    "@types/jest": "^25.1.4",
     "@types/node": "^13.9.1",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
@@ -66,6 +67,7 @@
     "nodemon": "2.0.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {

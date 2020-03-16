@@ -3,7 +3,7 @@ module.exports = {
   coverageDirectory: `./.coverage/`,
   collectCoverage: true,
   transform: {
-    "^.+\\.(js|ts)$": `babel-jest`
+    "^.+\\.(js|ts)x?$": `babel-jest`
   },
   verbose: true
 }

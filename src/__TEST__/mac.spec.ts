@@ -2,11 +2,7 @@ import { Kind } from "graphql/language"
 import { MAC } from "../"
 
 // Taken from https://github.com/hapijs/joi/blob/master/test/types/string.js
-const addresses = [
-  `01:23:45:67:89:ab`,
-  `01-23-45-67-89-ab`,
-  `0123.4567.89ab`
-]
+const addresses = [`01:23:45:67:89:ab`, `01-23-45-67-89-ab`, `0123.4567.89ab`]
 
 describe(`MAC`, () => {
   describe(`valid`, () => {
@@ -25,10 +21,13 @@ describe(`MAC`, () => {
     it(`parseLiteral`, () => {
       for (const address of addresses) {
         expect(
-          MAC.parseLiteral({
-            value: address,
-            kind: Kind.STRING
-          })
+          MAC.parseLiteral(
+            {
+              value: address,
+              kind: Kind.STRING
+            },
+            {}
+          )
         ).toEqual(address)
       }
     })
@@ -38,20 +37,30 @@ describe(`MAC`, () => {
     describe(`not a valid MAC address`, () => {
       it(`serialize`, () => {
         expect(() => MAC.serialize(123)).toThrow(/Value is not string/)
-        expect(() => MAC.serialize(`this is not an mac address`)).toThrow(/Value is not a valid MAC address/)
+        expect(() => MAC.serialize(`this is not an mac address`)).toThrow(
+          /Value is not a valid MAC address/
+        )
       })
 
       it(`parseValue`, () => {
         expect(() => MAC.serialize(123)).toThrow(/Value is not string/)
-        expect(() => MAC.parseValue(`this is not an mac address`)).toThrow(/Value is not a valid MAC address/)
+        expect(() => MAC.parseValue(`this is not an mac address`)).toThrow(
+          /Value is not a valid MAC address/
+        )
       })
 
       it(`parseLiteral`, () => {
-        expect(() => MAC.parseLiteral({ value: 123, kind: Kind.INT }))
-          .toThrow(/Can only validate strings as MAC addresses but got a/)
+        expect(() =>
+          // @ts-ignore
+          MAC.parseLiteral({ value: 123, kind: Kind.INT }, {})
+        ).toThrow(/Can only validate strings as MAC addresses but got a/)
 
-        expect(() => MAC.parseLiteral({ value: `this is not an mac address`, kind: Kind.STRING }))
-          .toThrow(/Value is not a valid MAC address/)
+        expect(() =>
+          MAC.parseLiteral(
+            { value: `this is not an mac address`, kind: Kind.STRING },
+            {}
+          )
+        ).toThrow(/Value is not a valid MAC address/)
       })
     })
   })

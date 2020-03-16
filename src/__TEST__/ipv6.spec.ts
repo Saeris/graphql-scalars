@@ -70,10 +70,13 @@ describe(`IPv6`, () => {
     it(`parseLiteral`, () => {
       for (const address of addresses) {
         expect(
-          IPv6.parseLiteral({
-            value: address,
-            kind: Kind.STRING
-          })
+          IPv6.parseLiteral(
+            {
+              value: address,
+              kind: Kind.STRING
+            },
+            {}
+          )
         ).toEqual(address)
       }
     })
@@ -83,20 +86,30 @@ describe(`IPv6`, () => {
     describe(`not a valid IPv6 address`, () => {
       it(`serialize`, () => {
         expect(() => IPv6.serialize(123)).toThrow(/Value is not string/)
-        expect(() => IPv6.serialize(`this is not an ipv6 address`)).toThrow(/Value is not a valid IPv6 address/)
+        expect(() => IPv6.serialize(`this is not an ipv6 address`)).toThrow(
+          /Value is not a valid IPv6 address/
+        )
       })
 
       it(`parseValue`, () => {
         expect(() => IPv6.serialize(123)).toThrow(/Value is not string/)
-        expect(() => IPv6.parseValue(`this is not an ipv6 address`)).toThrow(/Value is not a valid IPv6 address/)
+        expect(() => IPv6.parseValue(`this is not an ipv6 address`)).toThrow(
+          /Value is not a valid IPv6 address/
+        )
       })
 
       it(`parseLiteral`, () => {
-        expect(() => IPv6.parseLiteral({ value: 123, kind: Kind.INT }))
-          .toThrow(/Can only validate strings as IPv6 addresses but got a/)
+        expect(() =>
+          // @ts-ignore
+          IPv6.parseLiteral({ value: 123, kind: Kind.INT }, {})
+        ).toThrow(/Can only validate strings as IPv6 addresses but got a/)
 
-        expect(() => IPv6.parseLiteral({ value: `this is not an ipv6 address`, kind: Kind.STRING }))
-          .toThrow(/Value is not a valid IPv6 address/)
+        expect(() =>
+          IPv6.parseLiteral(
+            { value: `this is not an ipv6 address`, kind: Kind.STRING },
+            {}
+          )
+        ).toThrow(/Value is not a valid IPv6 address/)
       })
     })
   })

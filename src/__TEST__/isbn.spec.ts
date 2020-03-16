@@ -39,10 +39,13 @@ describe(`ISBN`, () => {
     it(`parseLiteral`, () => {
       for (const value of serialNumbers) {
         expect(
-          ISBN.parseLiteral({
-            value,
-            kind: Kind.STRING
-          })
+          ISBN.parseLiteral(
+            {
+              value,
+              kind: Kind.STRING
+            },
+            {}
+          )
         ).toEqual(value)
       }
     })
@@ -52,20 +55,30 @@ describe(`ISBN`, () => {
     describe(`not a valid ISBN address`, () => {
       it(`serialize`, () => {
         expect(() => ISBN.serialize(123)).toThrow(/Value is not string/)
-        expect(() => ISBN.serialize(`this is not an ISBN number`)).toThrow(/Value is not a valid ISBN number/)
+        expect(() => ISBN.serialize(`this is not an ISBN number`)).toThrow(
+          /Value is not a valid ISBN number/
+        )
       })
 
       it(`parseValue`, () => {
         expect(() => ISBN.serialize(123)).toThrow(/Value is not string/)
-        expect(() => ISBN.parseValue(`this is not an ISBN number`)).toThrow(/Value is not a valid ISBN number/)
+        expect(() => ISBN.parseValue(`this is not an ISBN number`)).toThrow(
+          /Value is not a valid ISBN number/
+        )
       })
 
       it(`parseLiteral`, () => {
-        expect(() => ISBN.parseLiteral({ value: 123, kind: Kind.INT }))
-          .toThrow(/Can only validate strings as ISBN numbers but got a/)
+        expect(() =>
+          // @ts-ignore
+          ISBN.parseLiteral({ value: 123, kind: Kind.INT }, {})
+        ).toThrow(/Can only validate strings as ISBN numbers but got a/)
 
-        expect(() => ISBN.parseLiteral({ value: `this is not an ISBN number`, kind: Kind.STRING }))
-          .toThrow(/Value is not a valid ISBN number/)
+        expect(() =>
+          ISBN.parseLiteral(
+            { value: `this is not an ISBN number`, kind: Kind.STRING },
+            {}
+          )
+        ).toThrow(/Value is not a valid ISBN number/)
       })
     })
   })

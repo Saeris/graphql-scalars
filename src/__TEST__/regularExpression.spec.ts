@@ -2,7 +2,11 @@ import { Kind } from "graphql/language"
 import { RegularExpressionFactory } from "../"
 
 describe(`RegularExpression`, () => {
-  const { scalar: AbcScalar, resolver: Abc } = RegularExpressionFactory(`Abc`, /^abc$/) // eslint-disable-line
+  // eslint-disable-next-line new-cap
+  const { scalar: AbcScalar, resolver: Abc } = RegularExpressionFactory(
+    `Abc`,
+    /^abc$/
+  )
 
   describe(`scalar`, () => {
     it(`exports scalar`, () => {
@@ -20,24 +24,33 @@ describe(`RegularExpression`, () => {
     })
 
     it(`parseLiteral`, () => {
-      expect(Abc.parseLiteral({ value: `abc`, kind: Kind.STRING })).toBe(`abc`)
+      expect(Abc.parseLiteral({ value: `abc`, kind: Kind.STRING }, {})).toBe(
+        `abc`
+      )
     })
   })
 
   describe(`invalid`, () => {
     describe(`does not match`, () => {
       it(`serialize`, () => {
-        expect(() => Abc.serialize(`this does not match`)).toThrow(/Value does not match the regular expression/)
+        expect(() => Abc.serialize(`this does not match`)).toThrow(
+          /Value does not match the regular expression/
+        )
       })
 
       it(`parseValue`, () => {
-        expect(() => Abc.parseValue(`this does not match`)).toThrow(/Value does not match the regular expression/)
+        expect(() => Abc.parseValue(`this does not match`)).toThrow(
+          /Value does not match the regular expression/
+        )
       })
 
       it(`parseLiteral`, () => {
-        expect(() => Abc.parseLiteral({ value: `this does not match`, kind: Kind.STRING })).toThrow(
-          /Value does not match the regular expression/
-        )
+        expect(() =>
+          Abc.parseLiteral(
+            { value: `this does not match`, kind: Kind.STRING },
+            {}
+          )
+        ).toThrow(/Value does not match the regular expression/)
       })
     })
 
@@ -51,9 +64,10 @@ describe(`RegularExpression`, () => {
       })
 
       it(`parseLiteral`, () => {
-        expect(() => Abc.parseLiteral({ value: 123, kind: Kind.INT })).toThrow(
-          /Can only validate strings as regular expressions but got a/
-        )
+        expect(() =>
+          // @ts-ignore
+          Abc.parseLiteral({ value: 123, kind: Kind.INT }, {})
+        ).toThrow(/Can only validate strings as regular expressions but got a/)
       })
     })
   })

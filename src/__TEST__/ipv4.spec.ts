@@ -50,10 +50,13 @@ describe(`IPv4`, () => {
     it(`parseLiteral`, () => {
       for (const address of addresses) {
         expect(
-          IPv4.parseLiteral({
-            value: address,
-            kind: Kind.STRING
-          })
+          IPv4.parseLiteral(
+            {
+              value: address,
+              kind: Kind.STRING
+            },
+            {}
+          )
         ).toEqual(address)
       }
     })
@@ -63,20 +66,30 @@ describe(`IPv4`, () => {
     describe(`not a valid IPv4 address`, () => {
       it(`serialize`, () => {
         expect(() => IPv4.serialize(123)).toThrow(/Value is not string/)
-        expect(() => IPv4.serialize(`this is not an ipv4 address`)).toThrow(/Value is not a valid IPv4 address/)
+        expect(() => IPv4.serialize(`this is not an ipv4 address`)).toThrow(
+          /Value is not a valid IPv4 address/
+        )
       })
 
       it(`parseValue`, () => {
         expect(() => IPv4.serialize(123)).toThrow(/Value is not string/)
-        expect(() => IPv4.parseValue(`this is not an ipv4 address`)).toThrow(/Value is not a valid IPv4 address/)
+        expect(() => IPv4.parseValue(`this is not an ipv4 address`)).toThrow(
+          /Value is not a valid IPv4 address/
+        )
       })
 
       it(`parseLiteral`, () => {
-        expect(() => IPv4.parseLiteral({ value: 123, kind: Kind.INT }))
-          .toThrow(/Can only validate strings as IPv4 addresses but got a/)
+        expect(() =>
+          // @ts-ignore
+          IPv4.parseLiteral({ value: 123, kind: Kind.INT }, {})
+        ).toThrow(/Can only validate strings as IPv4 addresses but got a/)
 
-        expect(() => IPv4.parseLiteral({ value: `this is not an ipv4 address`, kind: Kind.STRING }))
-          .toThrow(/Value is not a valid IPv4 address/)
+        expect(() =>
+          IPv4.parseLiteral(
+            { value: `this is not an ipv4 address`, kind: Kind.STRING },
+            {}
+          )
+        ).toThrow(/Value is not a valid IPv4 address/)
       })
     })
   })

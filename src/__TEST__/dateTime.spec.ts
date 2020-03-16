@@ -26,10 +26,13 @@ describe(`DateTime`, () => {
     it(`parseLiteral`, () => {
       const result = new Date(Date.UTC(2017, 0, 2, 3, 4, 5, 0))
       expect(
-        DateTime.parseLiteral({
-          value: `2017-01-02T03:04:05.000Z`,
-          kind: Kind.STRING
-        })
+        DateTime.parseLiteral(
+          {
+            value: `2017-01-02T03:04:05.000Z`,
+            kind: Kind.STRING
+          },
+          {}
+        )
       ).toEqual(result)
     })
   })
@@ -37,19 +40,32 @@ describe(`DateTime`, () => {
   describe(`invalid`, () => {
     describe(`not a valid date`, () => {
       it(`serialize`, () => {
-        expect(() => DateTime.serialize(`this is not a date`)).toThrow(/Value is not a valid Date/)
+        expect(() => DateTime.serialize(`this is not a date`)).toThrow(
+          /Value is not a valid Date/
+        )
       })
 
       it(`parseValue`, () => {
-        expect(() => DateTime.parseValue(`this is not a date`)).toThrow(/Value is not a valid Date/)
+        expect(() => DateTime.parseValue(`this is not a date`)).toThrow(
+          /Value is not a valid Date/
+        )
       })
 
       it(`parseLiteral`, () => {
-        expect(() => DateTime.parseLiteral({ value: 123, kind: Kind.INT }))
-          .toThrow(/Can only parse strings to dates but got a/)
+        expect(() =>
+          // @ts-ignore
+          DateTime.parseLiteral({ value: 123, kind: Kind.INT }, {})
+        ).toThrow(/Can only parse strings to dates but got a/)
 
-        expect(() => DateTime.parseLiteral({ value: `this is not a date`, kind: Kind.STRING }))
-          .toThrow(/Value is not a valid Date/)
+        expect(() =>
+          DateTime.parseLiteral(
+            {
+              value: `this is not a date`,
+              kind: Kind.STRING
+            },
+            {}
+          )
+        ).toThrow(/Value is not a valid Date/)
       })
     })
   })
