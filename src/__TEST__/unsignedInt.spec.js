@@ -1,4 +1,3 @@
-/* global describe, test, expect */
 import { Kind } from "graphql/language"
 import { UnsignedInt } from "../"
 

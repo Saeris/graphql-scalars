@@ -1,4 +1,3 @@
-/* global describe, it, expect */
 import { Kind } from "graphql/language"
 import { Hexadecimal } from "../"
 

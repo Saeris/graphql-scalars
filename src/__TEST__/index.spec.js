@@ -1,4 +1,3 @@
-/* global describe, test, expect */
 import { GraphQLScalarType } from "graphql"
 import { default as Scalars } from "../"
 

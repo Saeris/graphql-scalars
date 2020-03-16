@@ -1,26 +1,27 @@
 module.exports = {
+  plugins: [
+    require(`@babel/plugin-proposal-class-properties`),
+    require(`@babel/plugin-proposal-object-rest-spread`)
+  ],
   presets: [
+    require(`@babel/preset-typescript`),
     [
       require(`@babel/preset-env`),
-      {
-        targets: { node: `8.10` },
-        modules: `commonjs`,
-        useBuiltIns: `usage`,
-        corejs: 3,
-      }
+      { targets: { node: true }, useBuiltIns: `usage`, corejs: 3 }
     ]
   ],
   env: {
     test: {
       sourceMaps: `inline`,
       presets: [
+        require(`@babel/preset-typescript`),
         [
           require(`@babel/preset-env`),
           {
-            targets: { node: `8.10` },
+            targets: { node: true },
             modules: `commonjs`,
             useBuiltIns: `usage`,
-            corejs: 3,
+            corejs: 3
           }
         ]
       ]
