@@ -2,17 +2,17 @@
   "name": "@saeris/graphql-scalars",
   "version": "1.4.0",
   "description": "A collection of scalar types using Joi for validation.",
+  "keywords": [
+    "apollo",
+    "graphql",
+    "scalars"
+  ],
   "author": "Drake Costa <drake@saeris.io> (https://github.com/Saeris/)",
   "repository": {
     "type": "git",
     "url": "https://github.com/saeris/graphql-scalars.git"
   },
   "license": "MIT",
-  "keywords": [
-    "apollo",
-    "graphql",
-    "scalars"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "nodemon --watch src --watch example --exec run-s build serve",
     "build": "pika build",
-    "serve": "babel-node --extensions \".ts,.tsx\" example/index.ts",
+    "serve": "babel-node --config-file ./example/.babelrc.js -x \".ts,.tsx\" example/index.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./src/**/*.{js,ts}",
     "test": "yarn lint && yarn typecheck && jest -c ./jest.config.js",
@@ -68,7 +68,6 @@
     "nodemon": "2.0.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
-    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {

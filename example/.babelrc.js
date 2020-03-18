@@ -14,7 +14,6 @@ module.exports = {
     test: {
       sourceMaps: `inline`,
       presets: [
-        require(`@babel/preset-typescript`),
         [
           require(`@babel/preset-env`),
           {

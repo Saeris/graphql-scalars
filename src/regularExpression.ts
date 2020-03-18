@@ -1,5 +1,5 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import Joi from "@hapi/joi"
+import * as Joi from "@hapi/joi"
 
 export const RegularExpressionFactory = (name: string, regex: RegExp) => {
   const validate = (value: string) => {
