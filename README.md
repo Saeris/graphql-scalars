@@ -3,8 +3,8 @@
   <a href="https://www.npmjs.org/package/@saeris/graphql-scalars">
     <img src="https://img.shields.io/npm/v/@saeris/graphql-scalars.svg?style=flat" alt="npm">
   </a>
-  <a href="https://travis-ci.org/Saeris/graphql-scalars">
-    <img src="https://travis-ci.org/Saeris/graphql-scalars.svg?branch=master" alt="travis">
+  <a href="https://travis-ci.com/Saeris/graphql-scalars">
+    <img src="https://travis-ci.com/Saeris/graphql-scalars.svg?branch=master" alt="travis">
   </a>
   <a href="https://codecov.io/gh/Saeris/graphql-scalars">
     <img src="https://codecov.io/gh/Saeris/graphql-scalars/branch/master/graph/badge.svg" alt="codecov"/>
