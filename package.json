@@ -1,7 +1,7 @@
 {
   "name": "@saeris/graphql-scalars",
   "version": "1.4.2",
-  "description": "A collection of scalar types using Joi for validation.",
+  "description": "A collection of scalar types using Joi for validation",
   "keywords": [
     "apollo",
     "graphql",

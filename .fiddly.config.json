@@ -1,4 +1,6 @@
 {
+	"name": "📐 GraphQL Scalars",
+	"description": "A library of custom GraphQL scalar types for creating precise type-safe GraphQL schemas, with validation powered by Joi",
 	"noHeader": true,
 	"homepage:": "http://saeris.io",
 	"repo": "https://github.com/saeris/graphql-scalars",
