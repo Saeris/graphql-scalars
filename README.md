@@ -289,19 +289,46 @@ A field whose value conforms to the standard URL format as specified in
 
 ## 🏭 Factories
 
-### RegularExpressionFactory
+### rangeFactory
 
 ```js
-import { RegularExpressionFactory } from "@saeris/graphql-scalars"
+import { rangeFactory } from "@saeris/graphql-scalars"
 ```
 
-A `GraphQLScalarType` factory that takes two arguments:
+A `GraphQLScalarType` factory that takes the following config:
 
-* `name` - The name of your custom type
-* `regex` - The regex to be used to check against any values for fields with this new type
+* `name` - The name of your custom scalar
+* `start` - Minimum value this scalar will accept
+* `end` - Maximum value this scalar will accept
+* `float` - Set to `true` to accept Floats, `false` to accept Integers (Optional, default: `false`)
+
+The following will create a scalar that accepts any Float between 1 and 1000 as a valid value
+```js
+const { scalar: RangeScalar, resolver: Range } = new RegularExpressionFactory({
+  name: 'Range',
+  start: 1,
+  end: 1000,
+  float: true
+});
+```
+
+### regularExpressionFactory
 
 ```js
-const { scalar: MyRegexScalar, resolver: MyRegexResolver } = new RegularExpressionFactory('MyRegex', /^ABC$/);
+import { regularExpressionFactory } from "@saeris/graphql-scalars"
+```
+
+A `GraphQLScalarType` factory that takes the following config:
+
+* `name` - The name of your custom scalar
+* `regex` - The regex to be used to check against any values for fields with this new type
+
+The following will create a scalar that accepts only Strings that match `ABC` as a valid value
+```js
+const { scalar: RegexScalar, resolver: Regex } = new RegularExpressionFactory({
+  name: 'Regex',
+  regex: /^ABC$/
+});
 ```
 
 ## 📣 Acknowledgements

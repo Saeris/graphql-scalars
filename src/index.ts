@@ -24,7 +24,8 @@ import { UnsignedFloatScalar, UnsignedFloat } from "./unsignedFloat"
 import { UnsignedIntScalar, UnsignedInt } from "./unsignedInt"
 import { URLScalar, URL } from "./url"
 
-export { RegularExpressionFactory } from "./regularExpression"
+export { regularExpressionFactory } from "./regularExpression"
+export { rangeFactory } from "./range"
 
 export {
   DateTimeScalar,

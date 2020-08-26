@@ -1,7 +1,12 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
 import * as Joi from "@hapi/joi"
 
-export const RegularExpressionFactory = (name: string, regex: RegExp) => {
+interface Config {
+  name: string;
+  regex: RegExp;
+}
+
+export const regularExpressionFactory = ({ name, regex }: Config) => {
   const validate = (value: string) => {
     Joi.assert(
       value,

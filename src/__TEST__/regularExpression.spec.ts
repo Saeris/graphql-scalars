@@ -1,12 +1,11 @@
 import { Kind } from "graphql/language"
-import { RegularExpressionFactory } from "../"
+import { regularExpressionFactory } from "../"
 
-describe(`RegularExpression`, () => {
-  // eslint-disable-next-line new-cap
-  const { scalar: AbcScalar, resolver: Abc } = RegularExpressionFactory(
-    `Abc`,
-    /^abc$/
-  )
+describe(`regularExpressionFactory`, () => {
+  const { scalar: AbcScalar, resolver: Abc } = regularExpressionFactory({
+    name: `Abc`,
+    regex: /^abc$/
+  })
 
   describe(`scalar`, () => {
     it(`exports scalar`, () => {
