@@ -1,30 +1,18 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { number as yupNumber } from "yup"
 
 const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.any().invalid(Infinity, -Infinity),
-    new TypeError(`Value is not a finite number: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.number().required(),
-    new TypeError(`Value is not a number: ${value}`)
-  )
+  yupNumber()
+    .typeError(`Value is not a number: ${value}`)
+    .notOneOf([Infinity, -Infinity], `Value is not a finite number: ${value}`)
+    .required(`Value is not a number: ${value}`)
+    .validateSync(value)
   const parsed = parseFloat(value)
-  Joi.assert(
-    parsed,
-    Joi.number().min(0),
-    new TypeError(`Value is not a non-negative number: ${parsed}`)
-  )
-  Joi.assert(
-    parsed,
-    Joi.number()
-      .positive()
-      .allow(0),
-    new TypeError(`Value is not a non-negative number/: ${parsed}`)
-  )
+  yupNumber()
+    .strict(true)
+    .positive(`Value is not a non-negative number: ${parsed}`)
+    .min(0, `Value is not a non-negative number: ${parsed}`)
+    .validateSync(parsed)
   return parsed
 }
 

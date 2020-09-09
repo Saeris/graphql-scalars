@@ -1,26 +1,16 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    [
-      Joi.string().regex(
-        /^(?:ISBN(?:-10)?:? *((?=\d{1,5}([ -]?)\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}[\dX]))$/i
-      ),
-      Joi.string().regex(
-        /^(?:ISBN(?:-13)?:? *(97(?:8|9)([ -]?)(?=\d{1,5}\2?\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}\d))$/i
-      )
-    ],
-    new TypeError(`Value is not a valid ISBN number: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .test(`isbn`, `Value is not a valid ISBN number: ${value}`, val => {
+      const isbn10 = /^(?:ISBN(?:-10)?:? *((?=\d{1,5}([ -]?)\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}[\dX]))$/i
+      const isbn13 = /^(?:ISBN(?:-13)?:? *(97(?:8|9)([ -]?)(?=\d{1,5}\2?\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}\d))$/i
+      return !(!isbn10.test(val as string) && !isbn13.test(val as string))
+    })
+    .validateSync(value)
 
 export const ISBNScalar = `scalar ISBN`
 

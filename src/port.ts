@@ -1,23 +1,26 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { number as yupNumber } from "yup"
 
 const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.any().invalid(Infinity, -Infinity),
-    new TypeError(`Value is not a finite number: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.number().required(),
-    new TypeError(`Value is not a number: ${value}`)
-  )
+  yupNumber()
+    .typeError(`Value is not a number: ${value}`)
+    .notOneOf([Infinity, -Infinity], `Value is not a finite number: ${value}`)
+    .test(
+      `integer`,
+      `Value is not a number: ${value}`,
+      val => typeof val === `number` && !isNaN(val)
+    )
+    .validateSync(value)
   const parsed = parseInt(value, 10)
-  Joi.assert(
-    parsed,
-    Joi.number().port(),
-    new TypeError(`Value is not a valid TCP port: ${parsed}`)
-  )
+  yupNumber()
+    .strict(true)
+    .required(`Value is not a number: ${value}`)
+    .test(
+      `port`,
+      `Value is not a valid TCP port: ${parsed}`,
+      val => !!val && Number.isSafeInteger(val) && val >= 0 && val <= 65535
+    )
+    .validateSync(parsed)
   return parsed
 }
 

@@ -1,19 +1,17 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.string().ip({ version: `ipv4` }),
-    new TypeError(`Value is not a valid IPv4 address: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .matches(
+      new RegExp(
+        `^(?:(?:(?:0{0,2}\\d|0?[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(?:0{0,2}\\d|0?[1-9]\\d|1\\d\\d|2[0-4]\\d|25[0-5])(?:\\/(?:\\d|[1-2]\\d|3[0-2]))?)$`
+      ),
+      `Value is not a valid IPv4 address: ${value}`
+    )
+    .validateSync(value)
 
 export const IPv4Scalar = `scalar IPv4`
 

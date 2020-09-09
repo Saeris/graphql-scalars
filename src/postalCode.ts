@@ -1,9 +1,6 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as BaseJoi from "@hapi/joi"
-// @ts-ignore
-import joiPostalCode from "joi-postalcode"
-
-const Joi = BaseJoi.extend(joiPostalCode)
+import { string as yupString } from "yup"
+import postalCodes from "postal-codes-js"
 
 const countries = [
   `US`,
@@ -21,19 +18,16 @@ const countries = [
   `IN`
 ]
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    [...countries.map(country => Joi.string().postalCode(country))],
-    new TypeError(`Value is not a valid postal code: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .test(`postal code`, `Value is not a valid postal code: ${value}`, val =>
+      countries.some(
+        country => postalCodes.validate(country, val as string) === true
+      )
+    )
+    .validateSync(value)
 
 export const PostalCodeScalar = `scalar PostalCode`
 

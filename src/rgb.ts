@@ -1,21 +1,15 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.string().regex(
-      /^rgb\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*\)$/
-    ),
-    new TypeError(`Value is not a valid RGB color: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .matches(
+      /^rgb\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*\)$/,
+      `Value is not a valid RGB color: ${value}`
+    )
+    .validateSync(value)
 
 export const RGBScalar = `scalar RGB`
 

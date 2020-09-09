@@ -1,19 +1,15 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.string().regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/),
-    new TypeError(`Value is not a valid HexColorCode: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .matches(
+      /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{8})$/i,
+      `Value is not a valid HexColorCode: ${value}`
+    )
+    .validateSync(value)
 
 export const HexColorCodeScalar = `scalar HexColorCode`
 

@@ -1,14 +1,8 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { date as yupDate } from "yup"
 
-const validate = (value: Date) => {
-  Joi.assert(
-    value,
-    Joi.date().iso(),
-    new TypeError(`Value is not a valid Date: ${value}`)
-  )
-  return value
-}
+const validate = (value: Date) =>
+  yupDate().typeError(`Value is not a valid Date: ${value}`).validateSync(value)
 
 export const DateTimeScalar = `scalar DateTime`
 

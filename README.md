@@ -1,6 +1,6 @@
 <h1 align="center" style="display: block; text-align: center;">📐 GraphQL Scalars</h1>
 <p align="center"><a href="https://www.npmjs.org/package/@saeris/graphql-scalars"><img src="https://img.shields.io/npm/v/@saeris/graphql-scalars.svg?style=flat" alt="npm"></a><a href="https://travis-ci.com/Saeris/graphql-scalars"><img src="https://travis-ci.com/Saeris/graphql-scalars.svg?branch=master" alt="travis"></a><a href="https://codecov.io/gh/Saeris/graphql-scalars"><img src="https://codecov.io/gh/Saeris/graphql-scalars/branch/master/graph/badge.svg" alt="codecov"/></a></p>
-<p align="center">A library of custom <a href="http://graphql.org/learn/schema/#scalar-types">GraphQL scalar types</a> for creating precise type-safe GraphQL schemas, with validation powered by <a href="https://github.com/hapijs/joi">Joi</a>.</p>
+<p align="center">A library of custom <a href="http://graphql.org/learn/schema/#scalar-types">GraphQL scalar types</a> for creating precise type-safe GraphQL schemas, with validation powered by <a href="https://github.com/jquense/yup">Yup</a>.</p>
 
 ---
 
@@ -333,7 +333,7 @@ const { scalar: RegexScalar, resolver: Regex } = new RegularExpressionFactory({
 
 ## 📣 Acknowledgements
 
-This library was forked from [@okgrow/graphql-scalars](https://github.com/okgrow/graphql-scalars) and uses [Joi](https://github.com/hapijs/joi) for validation.
+This library was forked from [@okgrow/graphql-scalars](https://github.com/okgrow/graphql-scalars) and uses [Yup](https://github.com/jquense/yup) for validation.
 
 ## 🥂 License
 

@@ -1,33 +1,22 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { number as yupNumber } from "yup"
 
 const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.any().invalid(Infinity, -Infinity),
-    new TypeError(`Value is not a finite number: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.number().required(),
-    new TypeError(`Value is not a number: ${value}`)
-  )
+  yupNumber()
+    .typeError(`Value is not a number: ${value}`)
+    .notOneOf([Infinity, -Infinity], `Value is not a finite number: ${value}`)
+    .required(`Value is not a number: ${value}`)
+    .positive(`Value is not a positive number: ${value}`)
+    .test(`unsafeInt`, `Value is not a number: ${value}`, val =>
+      Number.isSafeInteger(val)
+    )
+    .validateSync(value)
   const parsed = parseInt(value, 10)
-  Joi.assert(
-    parsed,
-    Joi.number().integer(),
-    new TypeError(`Value is not an integer: ${parsed}`)
-  )
-  Joi.assert(
-    parsed,
-    Joi.number().positive(),
-    new TypeError(`Value is not a positive number: ${parsed}`)
-  )
-  Joi.assert(
-    parsed,
-    Joi.number().greater(0),
-    new TypeError(`Value is not greater than 0: ${parsed}`)
-  )
+  yupNumber()
+    .strict(true)
+    .integer(`Value is not an integer: ${parsed}`)
+    .moreThan(0, `Value is not greater than 0: ${parsed}`)
+    .validateSync(parsed)
   return parsed
 }
 

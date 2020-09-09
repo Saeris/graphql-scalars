@@ -1,19 +1,12 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.string().email(),
-    new TypeError(`Value is not a valid email address: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .email(`Value is not a valid email address: ${value}`)
+    .validateSync(value)
 
 export const EmailAddressScalar = `scalar EmailAddress`
 

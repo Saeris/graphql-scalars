@@ -1,19 +1,21 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
+import { parse } from "uri-js"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    [Joi.string().uri(), Joi.string().dataUri()],
-    new TypeError(`Value is not a valid URL: ${value}`)
-  )
-  return value
-}
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .test(`uri`, `Value is not a valid URL: ${value}`, val => {
+      try {
+        const result = parse(val as string)
+        if (!result.scheme) return false
+        return true
+      } catch (err) {
+        return false
+      }
+    })
+    .validateSync(value)
 
 export const URLScalar = `scalar URL`
 

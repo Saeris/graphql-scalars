@@ -1,21 +1,15 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
-const validate = (value: string) => {
-  Joi.assert(
-    value,
-    Joi.string(),
-    new TypeError(`Value is not string: ${value}`)
-  )
-  Joi.assert(
-    value,
-    Joi.string().regex(/^\+\d{11,15}$/),
-    new TypeError(
+const validate = (value: string) =>
+  yupString()
+    .strict(true)
+    .typeError(`Value is not string: ${value}`)
+    .matches(
+      /^\+\d{11,15}$/i,
       `Value is not a valid phone number of the form +17895551234 (10-15 digits): ${value}`
     )
-  )
-  return value
-}
+    .validateSync(value)
 
 export const PhoneNumberScalar = `scalar PhoneNumber`
 

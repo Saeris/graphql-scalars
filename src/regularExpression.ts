@@ -1,27 +1,21 @@
 import { GraphQLScalarType, GraphQLError, Kind } from "graphql"
-import * as Joi from "@hapi/joi"
+import { string as yupString } from "yup"
 
 interface Config {
-  name: string;
-  regex: RegExp;
+  name: string
+  regex: RegExp
 }
 
 export const regularExpressionFactory = ({ name, regex }: Config) => {
-  const validate = (value: string) => {
-    Joi.assert(
-      value,
-      Joi.string(),
-      new TypeError(`Value is not string: ${value}`)
-    )
-    Joi.assert(
-      value,
-      Joi.string().regex(new RegExp(regex), { name }),
-      new TypeError(
+  const validate = (value: string) =>
+    yupString()
+      .strict(true)
+      .typeError(`Value is not string: ${value}`)
+      .matches(
+        new RegExp(regex),
         `Value does not match the regular expression ${regex}: ${value}`
       )
-    )
-    return value
-  }
+      .validateSync(value)
 
   return {
     scalar: `scalar ${name}`,

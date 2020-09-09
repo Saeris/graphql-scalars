@@ -884,7 +884,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.8.4":
+"@babel/runtime@^7.10.5", "@babel/runtime@^7.8.4":
   version "7.11.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
@@ -1251,6 +1251,15 @@
     execa "^2.0.0"
     mkdirp "^0.5.1"
     typescript "^3.7.0"
+
+"@pika/plugin-build-web@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-build-web/-/plugin-build-web-0.9.2.tgz#2a209aed1877eabf14dad1cf6cb05e53e519701d"
+  integrity sha512-HjN/3P5c5jVEaPo9ZSs+jn9osrNs3JW3ZgP11NSfS0QQEMIw+Ks+qXi5Aymp8WKLpoldtZw/z69+SrfqlNeZyg==
+  dependencies:
+    "@pika/types" "^0.9.2"
+    "@types/node" "^10.12.18"
+    rollup "^1.1.0"
 
 "@pika/plugin-standard-pkg@^0.9.2":
   version "0.9.2"
@@ -1697,6 +1706,11 @@
   integrity sha512-Dk/IDOPtOgubt/IaevIUbTgV7doaKkoorvOyYM2CMwuDyP89bekI7H4xLIwunNYiK9jhCkmc6pUrJk3cj2AB9w==
   dependencies:
     "@types/yargs-parser" "*"
+
+"@types/yup@^0.29.6":
+  version "0.29.6"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.29.6.tgz#0920303c0298ac53945e9feb0b4dcad79cc755b2"
+  integrity sha512-YPDo5L5uHyxQ4UkyJST+33stD8Z6IT9fvmKyaPAGxkZ6q19foEi6sQGkmqBvzSyRPdstFEeJiS2rKuTn8rfO5g==
 
 "@typescript-eslint/eslint-plugin@^3.10.1":
   version "3.10.1"
@@ -4505,6 +4519,11 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.2.tgz#4575b21e2bcee7434aa9be662f4b7b5f9c2b5138"
   integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
 
+fn-name@~3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-3.0.0.tgz#0596707f635929634d791f452309ab41558e3c5c"
+  integrity sha512-eNMNr5exLoavuAMhIUVsOKF79SWd/zG104ef6sxBTSw+cZc6BXdQXDvYcGvp0VbxVVSp1XDUNoz7mg1xMtSznA==
+
 follow-redirects@1.5.10:
   version "1.5.10"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
@@ -6673,6 +6692,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash-es@^4.17.11:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -8132,7 +8156,7 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
-postal-codes-js@^2.2.4:
+postal-codes-js@^2.2.4, postal-codes-js@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/postal-codes-js/-/postal-codes-js-2.5.1.tgz#ff3d958f64784dba704c5143b35a7faaf3967a27"
   integrity sha512-gQ70qrxMMF88khNH3/LnK+ZENHsTwpx1s4HZb6h4H83AMXaeGczNRtA3AdirjXckBC7TkcOZIVNx/zbMbkmaOg==
@@ -8214,6 +8238,11 @@ prompts@^2.0.1:
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
+
+property-expr@^2.0.2:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.4.tgz#37b925478e58965031bb612ec5b3260f8241e910"
+  integrity sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
 
 proto-list@~1.2.1:
   version "1.2.4"
@@ -9494,6 +9523,11 @@ symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
+synchronous-promise@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.13.tgz#9d8c165ddee69c5a6542862b405bc50095926702"
+  integrity sha512-R9N6uDkVsghHePKh1TEqbnLddO2IY25OcsksyFp/qBe7XYd0PVbKEWxhcdMhpLzE1I6skj5l4aEZ3CRxcbArlA==
+
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -9681,6 +9715,11 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+  integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
 touch@^3.1.0:
   version "3.1.0"
@@ -9973,6 +10012,13 @@ uri-js@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
   integrity sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==
+  dependencies:
+    punycode "^2.1.0"
+
+uri-js@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.0.tgz#aa714261de793e8a82347a7bcc9ce74e86f28602"
+  integrity sha512-B0yRTzYdUCCn9n+F4+Gh4yIDtMQcaJsmYBDsTSG8g/OejKBodLQ2IHfN3bM7jUsRXndopT7OIXWdYqc1fjmV6g==
   dependencies:
     punycode "^2.1.0"
 
@@ -10414,6 +10460,19 @@ yauzl@^2.4.2:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
+
+yup@^0.29.3:
+  version "0.29.3"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.29.3.tgz#69a30fd3f1c19f5d9e31b1cf1c2b851ce8045fea"
+  integrity sha512-RNUGiZ/sQ37CkhzKFoedkeMfJM0vNQyaz+wRZJzxdKE7VfDeVKH8bb4rr7XhRLbHJz5hSjoDNwMEIaKhuMZ8gQ==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    fn-name "~3.0.0"
+    lodash "^4.17.15"
+    lodash-es "^4.17.11"
+    property-expr "^2.0.2"
+    synchronous-promise "^2.0.13"
+    toposort "^2.0.2"
 
 zen-observable-ts@^0.8.21:
   version "0.8.21"
