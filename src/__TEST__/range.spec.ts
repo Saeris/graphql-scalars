@@ -272,6 +272,47 @@ describe(`rangeFactory`, () => {
     })
   })
 
+  const { resolver: ExampleZeroStart } = rangeFactory({
+    name: `ExampleRange`,
+    start: 0,
+    end: 1
+  })
+
+  describe(`valid:allowsZero`, () => {
+    describe(`as int`, () => {
+      it(`serialize`, () => {
+        expect(ExampleZeroStart.serialize(0)).toBe(0)
+      })
+
+      it(`parseValue`, () => {
+        expect(ExampleZeroStart.parseValue(0)).toBe(0)
+      })
+
+      it(`parseLiteral`, () => {
+        expect(
+          // @ts-ignore
+          ExampleZeroStart.parseLiteral({ value: 0, kind: Kind.INT }, {})
+        ).toBe(0)
+      })
+    })
+
+    describe(`as string`, () => {
+      it(`serialize`, () => {
+        expect(ExampleZeroStart.serialize(`0`)).toBe(0)
+      })
+
+      it(`parseValue`, () => {
+        expect(ExampleZeroStart.parseValue(`0`)).toBe(0)
+      })
+
+      it(`parseLiteral`, () => {
+        expect(
+          ExampleZeroStart.parseLiteral({ value: `0`, kind: Kind.INT }, {})
+        ).toBe(0)
+      })
+    })
+  })
+
   const { resolver: ExampleFloatRange } = rangeFactory({
     name: `ExampleFloatRange`,
     start: 0.25,

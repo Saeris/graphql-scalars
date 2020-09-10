@@ -6,15 +6,11 @@ const validate = (value: string) =>
   yupString()
     .strict(true)
     .typeError(`Value is not string: ${value}`)
-    .test(`uri`, `Value is not a valid URL: ${value}`, val => {
-      try {
-        const result = parse(val as string)
-        if (!result.scheme) return false
-        return true
-      } catch (err) {
-        return false
-      }
-    })
+    .test(
+      `uri`,
+      `Value is not a valid URL: ${value}`,
+      val => !!parse(val as string).scheme
+    )
     .validateSync(value)
 
 export const URLScalar = `scalar URL`

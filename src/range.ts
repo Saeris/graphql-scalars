@@ -14,7 +14,7 @@ export const rangeFactory = ({ name, start, end, float = false }: Config) => {
       .typeError(`Value is not a number: ${value}`)
       .notOneOf([Infinity, -Infinity], `Value is not a finite number: ${value}`)
       .required(`Value is not a number: ${value}`)
-      .positive(`Value is not a positive number: ${value}`)
+      .min(0, `Value is not a positive number: ${value}`)
       .validateSync(value)
     if (!float) {
       yupNumber()
